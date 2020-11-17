@@ -14,28 +14,29 @@ hire_date DATE
 
 "Titles"
 --
-emp_no FK >-< Employees.emp_no
-title PK VARCHAR
-from_date DATE
+emp_no INTEGER PK FK >-< Employees.emp_no
+title VARCHAR
+from_date PK DATE
 to_date DATE
 
 "Dept_Emp"
 --
-emp_no PK FK >-< Employees.emp_no
-dept_no PK FK >-< Departments.dept_no
+emp_no INTEGER PK FK >-< Employees.emp_no
+dept_no VARCHAR PK FK >-< Departments.dept_no
 from_date DATE
 to_date DATE
 
 "Dept_Manager"
 --
-dept_no PK FK  >-< Departments.dept_no
-emp_no PK FK >-< Employees.emp_no
+dept_no VARCHAR PK FK  >-< Departments.dept_no
+emp_no INTEGER PK FK >-< Employees.emp_no
 from_date DATE
 to_date DATE
 
 "Salaries"
 --
-emp_no PK FK >-< Employees.emp_no
-Salary PK
+emp_no INTEGER PK FK >-< Employees.emp_no
+Salary FLOAT PK
 from_date DATE
 to_date DATE
+

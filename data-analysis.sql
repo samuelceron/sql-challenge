@@ -22,7 +22,9 @@ FROM departments d, dept_manager dm, employees e
 WHERE dm.dept_no = d.dept_no AND e.emp_no = dm.emp_no;
 
 -- List the department of each employee with the following information: employee number, last name, first name, and department name.
-
+SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
+FROM employees e, departments d, dept_emp de
+WHERE e.emp_no = de.emp_no AND de.dept_no = d.dept_no
 
 -- List all employees whose first name is "Hercules" and last names begin with "B."
 

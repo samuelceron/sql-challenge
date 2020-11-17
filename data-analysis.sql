@@ -27,12 +27,23 @@ FROM employees e, departments d, dept_emp de
 WHERE e.emp_no = de.emp_no AND de.dept_no = d.dept_no
 
 -- List all employees whose first name is "Hercules" and last names begin with "B."
-
+SELECT * 
+FROM employees e
+WHERE e.first_name LIKE 'Hercules' AND last_name LIKE 'B%';
 
 -- List all employees in the Sales department, including their employee number, last name, first name, and department name.
-
+SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
+FROM employees e, departments d, dept_emp de
+WHERE e.emp_no = de.emp_no AND de.dept_no = d.dept_no AND d.dept_name LIKE 'Sales';
 
 -- List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
+FROM employees e, departments d, dept_emp de
+WHERE e.emp_no = de.emp_no AND de.dept_no = d.dept_no AND (d.dept_name LIKE 'Sales' OR d.dept_name LIKE 'Development') ;
 
 
 -- In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
+SELECT count(emp_no) as total, last_name
+FROM employees
+GROUP BY last_name
+ORDER BY total DESC

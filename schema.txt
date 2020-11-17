@@ -1,0 +1,41 @@
+"Departments"
+--
+dept_no PK VARCHAR
+dept_name VARCHAR
+
+"Employees"
+--
+emp_no PK INTEGER
+birth_date DATE
+first_name VARCHAR
+last_name VARCHAR
+gender CHAR
+hire_date DATE
+
+"Titles"
+--
+emp_no FK >-< Employees.emp_no
+title PK VARCHAR
+from_date DATE
+to_date DATE
+
+"Dept_Emp"
+--
+emp_no PK FK >-< Employees.emp_no
+dept_no PK FK >-< Departments.dept_no
+from_date DATE
+to_date DATE
+
+"Dept_Manager"
+--
+dept_no PK FK  >-< Departments.dept_no
+emp_no PK FK >-< Employees.emp_no
+from_date DATE
+to_date DATE
+
+"Salaries"
+--
+emp_no PK FK >-< Employees.emp_no
+Salary PK
+from_date DATE
+to_date DATE
